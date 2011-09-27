@@ -2,7 +2,9 @@
 <?php
 
 $unsorted = array();
-$numints = 3000;
+$numints  = 3000;
+
+srand((int)microtime());
 for ($i = 0; $i < $numints; $i++) {
     $unsorted[] = rand(0, 100000);
 }
@@ -23,10 +25,12 @@ function bubblesort(&$data, $size)
 {
     for ($i = $size; --$i >= 0; ) {
         for ($j = 0; $j < $i; $j++) {
-            if ($data[$j] < $data[$j+1]) {
+            // we use references as PHP's copy on write is very slow
+            $next =& $data[$j + 1];
+            if ($data[$j] < $next) {
                 $temp = $data[$j];
-                $data[$j] = $data[$j+1];
-                $data[$j+1] = $temp;
+                $data[$j] = $next;
+                $next = $temp;
             }
         }
     }

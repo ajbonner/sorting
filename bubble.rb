@@ -18,7 +18,7 @@ numints = 3000
 ints = Array.new
 
 for i in 0..numints
-  ints[i] = rand(10000);
+  ints[i] = rand(100000);
 end
 
 puts "Sorting #{numints} integers"

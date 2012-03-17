@@ -5,15 +5,20 @@
 
 void bubblesort(int *ints, int numints) 
 {
-    int i, j, temp;
+    int i, j, temp, swapped;
 
     for (i = numints; --i >= 0; ) {
+        swapped = 0;
         for (j = 0; j < i; j++) {
             if (ints[j] > ints[j+1]) {
+                swapped = 1;
                 temp = ints[j];
                 ints[j] = ints[j+1];
                 ints[j+1] = temp;
             }
+        }
+        if (! swapped) {
+            return;
         }
     }
 }
@@ -27,8 +32,8 @@ double microtime()
 
 int main() 
 {
-    int numints = 3000;
-    int ints[3000];
+    int numints = 5000;
+    int ints[numints];
     int i;
     double start, end;
 

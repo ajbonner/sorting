@@ -4,17 +4,22 @@ def bubblesort(ints, numints)
   i = numints
   while i >= 0
     i-= 1
+    swapped = false
     for j in 0..i
       if ints[j] > ints[j+1]
+        swapped = true
         tmp = ints[j]
         ints[j] = ints[j+1]
         ints[j+1] = tmp
       end
     end
+    if !swapped
+      return
+    end
   end
 end
 
-numints = 3000
+numints = 5000
 ints = Array.new
 
 for i in 0..numints

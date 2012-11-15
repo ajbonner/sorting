@@ -4,9 +4,8 @@
 $unsorted = array();
 $numints  = 5000;
 
-srand((int)microtime());
 for ($i = 0; $i < $numints; $i++) {
-    $unsorted[] = rand(0, 100000);
+    $unsorted[] = mt_rand(0, 100000);
 }
 
 echo "Sorting $numints integers\n";

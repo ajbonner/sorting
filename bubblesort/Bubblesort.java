@@ -2,7 +2,7 @@ class Bubblesort {
 
     public static void main(String[] args)
     {
-        int numints = 10000;
+        int numints = 5000;
         int[] ints = new int[numints];
         long start, end;
 
